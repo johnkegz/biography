@@ -1,0 +1,16 @@
+#environment varible file
+.env
+
+#dependency directory
+node_modules
+
+#logs
+package-lock.json
+yarn.lock
+yarn-error.log
+
+#complied directory
+dist
+
+#vscode directory
+.vscode
