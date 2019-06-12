@@ -1,30 +1,18 @@
 /*
-node js project for biography using express
- */
+biography Project 
+using express, node js, sequelize
+*/
+
 import express from 'express';
 import 'dotenv/config';
 
+import checkDbConnection from './models/dbConnection'
+
 const app = express();
 const port = 3000;
+//Call dbCOnnection
+app.use(checkDbConnection)
 
-//writting middle warefunctions
-const myLogger = (req, res, next) => {
-    console.log("middleware function")
-    next()
-}
-const requestTime = (req, res, next) => {
-    req.requestTime = Date.now()
-    next()
-}
-//application level middlewares
-app.use(myLogger)
-app.use(requestTime)
-//error -handling middleware
-const errorhandler = (err, req, res, next) => {
-    console.log(err.stack)
-    res.statusCode(500).send('internal server error')
-}
-app.use(errorhandler)
 //Set view engine
 app.set('view engine', 'pug')
 //making a route with the <http method>(<path(route)>, <middle ware function(req, resp, next)>)
