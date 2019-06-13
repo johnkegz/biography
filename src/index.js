@@ -6,7 +6,7 @@ using express, node js, sequelize
 import express from 'express';
 import 'dotenv/config';
 
-import checkDbConnection from './models/dbConnection'
+import checkDbConnection from './dbConnection'
 
 const app = express();
 const port = 3000;
