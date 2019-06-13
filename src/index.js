@@ -6,12 +6,14 @@ using express, node js, sequelize
 import express from 'express';
 import 'dotenv/config';
 
-import checkDbConnection from './dbConnection'
+// import checkDbConnection from './dbConnection'
+import peopleRouter from './modules/people'
 
 const app = express();
 const port = 3000;
 //Call dbCOnnection
-app.use(checkDbConnection)
+// app.use(checkDbConnection)
+app.use(peopleRouter)
 
 //Set view engine
 app.set('view engine', 'pug')
