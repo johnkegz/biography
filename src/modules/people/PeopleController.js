@@ -1,4 +1,5 @@
 import models from '../../database/models'
+import { request } from 'http';
 
 class PeopleController {
     //Method getting all the members from the database
@@ -22,13 +23,44 @@ class PeopleController {
         }
         else{
             const postedPeople = await models.Person.create(req.body)
-            return res.json(req.body)
+            return res.json(postedPeople)
         }
         
         }
         catch(err){
             return res.json('server error ')
         }
+    }
+
+    //Update database
+    static async updatePeople(req, res) {
+        try{
+            const updatedPeople = await models.Person.update({
+                name: req.body.name,
+                subject: req.body.subject,
+                institution: req.body.institution,
+                status: req.body.status,
+                knownfor: req.body.knowfor,
+                bio: req.body.bio
+              }, {
+                where: {
+                  id: req.params.id
+                }
+              })
+            return res.json(updatedPeople)
+        }
+        catch(err){
+            return res.json('server error')
+        }
+    }
+    //Delete entry in database
+    static async deletePeople(req, res) {
+        const deletedPeople = await models.Person.destroy({
+            where: {
+            id: req.params.id
+            }
+        })
+        return res.json(deletedPeople)
     }
 
 }
