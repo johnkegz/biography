@@ -4,9 +4,11 @@ using express, node js, sequelize
 */
 
 import express from 'express';
+import login from './modules/User/index';
 import 'dotenv/config';
 
 import peopleRouter from './modules/people'
+import userRouter from './modules/User'
 
 const app = express();
 const port = 8000;
@@ -17,7 +19,8 @@ app.use(function(req, res, next) {
 });
 app.use(express.json()) // for parsing application/json
 
-app.use(peopleRouter)
+app.use('/people', peopleRouter)
+app.use('/user', userRouter)
 
 //Set view engine
 app.set('view engine', 'pug')

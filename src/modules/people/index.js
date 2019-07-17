@@ -8,4 +8,5 @@ router.get('/people/:id', PeopleController.getOnePerson)
 router.post('/people', PeopleController.postPeople)
 router.put('/people/:id', PeopleController.updatePeople)
 router.delete('/people/:id', PeopleController.deletePeople)
-module.exports = router
+
+export default router
