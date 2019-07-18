@@ -12,6 +12,18 @@ class PeopleController {
             return res.json('Server err')
         }
     }
+
+    //Method getting one member from the database
+    static async getOnePerson (req, res) {
+        try{
+            const person = await  models.Person.findByPk(req.params.id)
+            return res.json(person)
+        }
+        catch(err){
+            return res.json('Server err')
+        }
+    }
+
     //Method posting people information to database
     static async postPeople (req, res){
         try{
@@ -50,7 +62,7 @@ class PeopleController {
             return res.json(updatedPeople)
         }
         catch(err){
-            return res.json('server error')
+            return res.json(err)
         }
     }
     //Delete entry in database
