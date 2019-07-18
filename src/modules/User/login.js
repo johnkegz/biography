@@ -1,6 +1,7 @@
 import model from '../../database/models';
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { keys } from '../../config/keys'
 
 const loginUser = (req, res) => {
     model.User.findOne({where:{email: req.body.email}})
@@ -20,7 +21,7 @@ const loginUser = (req, res) => {
                 //sign token
                 jwt.sign(
                     payload, 
-                    'secreteKey', 
+                    keys.secretOrkey,
                     { expiresIn: 3600 }, 
                     (err, token) =>{
                         console.log('here man');
