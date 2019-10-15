@@ -4,9 +4,14 @@ using express, node js, sequelize
 */
 
 import express from 'express';
+import passport from 'passport';
+
+import login from './modules/User/index';
 import 'dotenv/config';
 
 import peopleRouter from './modules/people'
+import userRouter from './modules/User'
+// import passportConfig from './config/passport';
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -17,7 +22,14 @@ app.use(function(req, res, next) {
 });
 app.use(express.json()) // for parsing application/json
 
-app.use(peopleRouter)
+app.use('/people', peopleRouter)
+app.use('/user', userRouter)
+
+//passport middleware
+app.use(passport.initialize());
+
+//passporty config
+require('./config/passport')(passport)
 
 //Set view engine
 app.set('view engine', 'pug')
