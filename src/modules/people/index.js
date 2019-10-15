@@ -1,4 +1,4 @@
-import express from 'express'
+const express = require('express');
 import PeopleController from './PeopleController'
 import passport from 'passport';
 

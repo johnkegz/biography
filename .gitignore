@@ -14,3 +14,6 @@ dist
 
 #vscode directory
 .vscode
+
+#build folder
+build

@@ -2,6 +2,8 @@
 biography Project 
 using express, node js, sequelize
 */
+const express = require('express');
+const dotenv = require('dotenv/config');
 
 import express from 'express';
 import passport from 'passport';
