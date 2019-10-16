@@ -6,11 +6,11 @@ using express, node js, sequelize
 import express from 'express';
 import passport from 'passport';
 
-import login from './modules/User/index';
-import 'dotenv/config';
+// import login from './modules/User/index';
+// import 'dotenv/config';
 
-import peopleRouter from './modules/people'
-import userRouter from './modules/User'
+// import peopleRouter from './modules/people'
+// import userRouter from './modules/User'
 // import passportConfig from './config/passport';
 
 const app = express();
@@ -22,8 +22,8 @@ app.use(function(req, res, next) {
 });
 app.use(express.json()) // for parsing application/json
 
-app.use('/people', peopleRouter)
-app.use('/user', userRouter)
+// app.use('/people', peopleRouter)
+// app.use('/user', userRouter)
 
 //passport middleware
 app.use(passport.initialize());

@@ -4,6 +4,7 @@ import { request } from 'http';
 class PeopleController {
     //Method getting all the members from the database
     static async getPeople (req, res) {
+        console.log("Here Man ++");
         try{
             const people = await  models.Person.findAll()
             return res.json(people)

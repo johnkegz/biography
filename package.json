@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon --exec babel-node src/index.js"
+    "start:dev": "nodemon --exec babel-node src/index.js",
+    "babel-version": "nodemon babel --version",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm install mysql2 && node ./build/index.js"
   },
   "author": "johnkegz",
   "license": "MIT",
