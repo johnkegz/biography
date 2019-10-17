@@ -4,7 +4,6 @@ import { request } from 'http';
 class PeopleController {
     //Method getting all the members from the database
     static async getPeople (req, res) {
-        console.log("Here Man ++");
         try{
             const people = await  models.Person.findAll()
             return res.json(people)
@@ -27,10 +26,12 @@ class PeopleController {
 
     //Method posting people information to database
     static async postPeople (req, res){
+        
         try{
         const checkForName = await models.Person.findOne({
             where: { name: req.body.name}
         })
+        
         if(checkForName){
             return res.json('name already exists')
         }
@@ -41,7 +42,7 @@ class PeopleController {
         
         }
         catch(err){
-            return res.json('server error ')
+            return res.json(`server error ${err}`)
         }
     }
 
