@@ -4,15 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "nodemon --exec babel-node src/index.js"
+    "start:dev": "nodemon --exec babel-node src/index.js",
+    "babel-version": "nodemon babel --version",
+    "clean": "rm -rf build && mkdir build",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm run build-babel",
+    "db:migrate": "node_modules/.bin/sequelize db:migrate",
+    "db:rollback": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "start": "node_modules/.bin/sequelize db:migrate && npm install mysql2 && node ./build/index.js"
   },
   "author": "johnkegz",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-env": "^1.7.0",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "mysql2": "^1.7.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",

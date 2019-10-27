@@ -6,24 +6,28 @@ using express, node js, sequelize
 import express from 'express';
 import passport from 'passport';
 
-import login from './modules/User/index';
-import 'dotenv/config';
+// import login from './modules/User/index';
+// import 'dotenv/config';
 
 import peopleRouter from './modules/people'
 import userRouter from './modules/User'
+import feedRouter from './modules/feed';
 // import passportConfig from './config/passport';
 
 const app = express();
 const port = process.env.PORT || 8000;
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  // res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization");
+  res.header("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,X-Access-Token,XKey,Authorization");
   next();
 });
 app.use(express.json()) // for parsing application/json
 
-app.use('/people', peopleRouter)
-app.use('/user', userRouter)
+app.use('/people', peopleRouter);
+app.use('/user', userRouter);
+app.use('/', feedRouter);
 
 //passport middleware
 app.use(passport.initialize());

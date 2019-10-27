@@ -4,7 +4,8 @@ import passport from 'passport';
 
 const router = express.Router()
 
-router.get('/people', passport.authenticate('jwt', { session: false }), PeopleController.getPeople)
+// router.get('/people', passport.authenticate('jwt', { session: false }), PeopleController.getPeople)
+router.get('/people', PeopleController.getPeople)
 router.get('/people/:id', PeopleController.getOnePerson)
 router.post('/people', PeopleController.postPeople)
 router.put('/people/:id', PeopleController.updatePeople)
