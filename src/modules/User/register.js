@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs'
 import model from '../../database/models';
 
 const registerUser = (req, res) => {
+    console.log("here ++++++++++++", req);
     model.User.findOne({where: { email: req.body.email}})
     .then(user => {
         if(user){
