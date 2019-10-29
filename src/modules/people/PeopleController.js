@@ -1,6 +1,9 @@
-import models from '../../database/models'
-import { request } from 'http';
-import FeedController from '../feed/feedController';
+// import models from '../../database/models'
+// import { request } from 'http';
+// import FeedController from '../feed/feedController';
+
+const models = require('../../database/models');
+const FeedController = require('../feed/feedController');
 
 class PeopleController {
     //Method getting all the members from the database
@@ -84,4 +87,5 @@ class PeopleController {
     }
 
 }
-export default PeopleController
+// export default PeopleController
+module.exports = PeopleController

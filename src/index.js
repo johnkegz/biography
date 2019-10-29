@@ -3,16 +3,27 @@ biography Project
 using express, node js, sequelize
 */
 
-import express from 'express';
-import passport from 'passport';
+
+
+// import express from 'express';
+// import passport from 'passport';
+
+const express = require('express');
+const passport = require('passport');
 
 // import login from './modules/User/index';
 // import 'dotenv/config';
 
-import peopleRouter from './modules/people'
-import userRouter from './modules/User'
-import feedRouter from './modules/feed';
-import cors from 'cors';
+// import peopleRouter from './modules/people'
+// import userRouter from './modules/User'
+// import feedRouter from './modules/feed';
+// import cors from 'cors';
+
+const peopleRouter = require('./modules/people');
+const userRouter = require('./modules/User');
+const feedRouter = require('./modules/feed');
+const cors = require('cors');
+
 // import passportConfig from './config/passport';
 
 const app = express();

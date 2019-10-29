@@ -1,4 +1,5 @@
-import models from '../../database/models';
+// import models from '../../database/models';
+const models = require('../../database/models');
 class FeedController{
     static async postFeed(req, res){
         try{
@@ -20,4 +21,5 @@ class FeedController{
     }
 }
 
-export default FeedController;
+// export default FeedController;
+module.exports = FeedController

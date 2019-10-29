@@ -1,7 +1,12 @@
-import model from '../../database/models';
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
-import { keys } from '../../config/keys'
+// import model from '../../database/models';
+// import bcrypt from 'bcryptjs'
+// import jwt from 'jsonwebtoken'
+// import { keys } from '../../config/keys'
+
+const model = require('../../database/models');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken')
+const keys = require('../../config/keys');
 
 const loginUser = (req, res) => {
     model.User.findOne({where:{email: req.body.email}})
@@ -40,4 +45,6 @@ const loginUser = (req, res) => {
     .catch(err => res.send(`err ${err}`));
 }
 
-export default loginUser
+// export default loginUser
+
+module.exports = loginUser
