@@ -5,10 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon src/index.js",
-    "babel-version": "nodemon babel --version",
-    "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./src -s",
-    "build": "npm run clean && npm run build-babel",
     "db:migrate": "node_modules/.bin/sequelize db:migrate",
     "db:rollback": "node_modules/.bin/sequelize db:migrate:undo:all",
     "start": "node_modules/.bin/sequelize db:migrate && npm install mysql2 && node src/index.js"
