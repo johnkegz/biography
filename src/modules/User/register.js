@@ -1,5 +1,9 @@
-import bcrypt from 'bcryptjs'
-import model from '../../database/models';
+// import bcrypt from 'bcryptjs'
+// import model from '../../database/models';
+
+
+const model = require('../../database/models');
+const bcrypt = require('bcryptjs');
 
 const registerUser = (req, res) => {
     console.log("here ++++++++++++", req);
@@ -31,4 +35,6 @@ const registerUser = (req, res) => {
     });
 }
 
-export default registerUser
+// export default registerUser
+
+module.exports = registerUser

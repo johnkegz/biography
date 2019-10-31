@@ -1,6 +1,10 @@
-import express from 'express'
-import PeopleController from './PeopleController'
-import passport from 'passport';
+// import express from 'express'
+// import PeopleController from './PeopleController'
+// import passport from 'passport';
+
+const express = require('express');
+const PeopleController = require('./PeopleController');
+const passport = require('passport');
 
 const router = express.Router()
 
@@ -11,4 +15,6 @@ router.post('/people', PeopleController.postPeople)
 router.put('/people/:id', PeopleController.updatePeople)
 router.delete('/people/:id', PeopleController.deletePeople)
 
-export default router
+// export default router
+
+module.exports = router
