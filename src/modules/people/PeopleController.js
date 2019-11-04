@@ -3,7 +3,6 @@
 // import FeedController from '../feed/feedController';
 
 const models = require('../../database/models');
-const FeedController = require('../feed/feedController');
 
 class PeopleController {
     //Method getting all the members from the database
@@ -30,11 +29,7 @@ class PeopleController {
 
     //Method posting people information to database
     static async postPeople (req, res){
-        // post feed at the same time
-        FeedController.postFeed(req, res)
-        
         // continue with posting bio
-        console.log('Peoplle   ++++++++', req.body.bio);
         try{
         const checkForName = await models.Person.findOne({
             where: { name: req.body.name}
