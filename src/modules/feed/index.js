@@ -9,6 +9,7 @@ const FeedController = require('./feedController');
 const router = express.Router();
 
 router.get('/feed', FeedController.getFeed);
+router.get('/feed/:id', FeedController.getOneFeed);
 router.post('/feed', FeedController.postFeed);
 
 // export default router;

@@ -11,12 +11,26 @@ class FeedController{
             await models.Feed.create(req.body)
             return res.json({"message":'Story created'})
         }catch(err){
-            return err
+            return res.json(err)
         }
     }
     static async getFeed(req, res){
-        const feedData = await models.Feed.findAll()
-        return res.json(feedData);
+        try{
+            const feedData = await models.Feed.findAll()
+            return res.json(feedData);
+        }catch(err){
+            return res.json(err)
+        }
+    }
+
+    static async getOneFeed(req, res){
+        try{
+            const feed = await models.Feed.findByPk(req.params.id);
+            return res.json(feed);
+        }
+        catch(err){
+            return res.json(err)
+        }
     }
 }
 
