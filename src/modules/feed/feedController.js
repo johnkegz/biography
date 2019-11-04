@@ -3,14 +3,13 @@ const models = require('../../database/models');
 class FeedController{
     static async postFeed(req, res){
         try{
-            console.log('req +++++++', req.body.imageUrl)
             const data = {
-                title: req.body.knownfor,
-                feed: req.body.bio,
+                title: req.body.title,
+                feed: req.body.feed,
                 picUrl: req.body.imageUrl
             }
-            await models.Feed.create(data)
-            return 'posted'
+            await models.Feed.create(req.body)
+            return res.json({"message":'Story created'})
         }catch(err){
             return err
         }
