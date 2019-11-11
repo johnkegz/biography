@@ -11,6 +11,8 @@ const router = express.Router();
 router.get('/feed', FeedController.getFeed);
 router.get('/feed/:id', FeedController.getOneFeed);
 router.post('/feed', FeedController.postFeed);
+router.delete('/feed/:id', FeedController.deleteFeed);
+router.delete('/feed', FeedController.deleteAllFeeds);
 
 // export default router;
 module.exports = router

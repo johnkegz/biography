@@ -16,7 +16,8 @@ class FeedController{
     }
     static async getFeed(req, res){
         try{
-            const feedData = await models.Feed.findAll()
+            const feedData = await models.Feed.findAll({order: [
+                ['id', 'DESC'],], limit: 10})
             return res.json(feedData);
         }catch(err){
             return res.json(err)
@@ -32,6 +33,28 @@ class FeedController{
             return res.json(err)
         }
     }
+
+    /** Delete feed
+     * params id
+    */
+   static async deleteFeed(req, res){
+       const deleteResponse = await models.Feed.destroy({
+           where:{
+               id: req.params.id
+           }
+       });
+       return res.json({"result":deleteResponse})
+   }
+
+    /** Delete all feed
+     * params id
+    */
+   static async deleteAllFeeds(req, res){
+    
+    const deleteResponse = await models.Feed.destroy({where: {},
+        truncate: true});
+    return res.json({"result":deleteResponse})
+}
 }
 
 // export default FeedController;
