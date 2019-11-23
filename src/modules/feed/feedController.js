@@ -16,8 +16,13 @@ class FeedController{
     }
     static async getFeed(req, res){
         try{
-            const feedData = await models.Feed.findAll({order: [
-                ['id', 'DESC'],], limit: 10})
+            const feedData = await models.Feed.findAll({
+                order: [
+                ['id', 'DESC'],], limit: 10,
+                where: {
+                    approved: false
+                }
+            })
             return res.json(feedData);
         }catch(err){
             return res.json(err)
@@ -55,6 +60,29 @@ class FeedController{
         truncate: true});
     return res.json({"result":deleteResponse})
 }
+
+
+//Approve
+static async approve(req, res){
+    try{
+        console.log("approved +++++++++")
+        const feedId = req.params.id;
+        console.log("approved +++++++++ feedId", feedId)
+    const response = await models.Feed.update({
+        approved: true
+      }, {where:{
+          id: feedId
+      }}).catch((err)=>{console.log("approved +++++++++ err", err)})
+      console.dir(response)
+      console.log("approved +++++++++ response", response)
+
+        return res.json({"message":'Story approved'})
+    }catch(err){
+        console.log("approved +++++++++ error", err)
+        return res.json(err)
+    }
+}
+
 }
 
 // export default FeedController;
