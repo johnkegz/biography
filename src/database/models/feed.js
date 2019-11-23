@@ -4,8 +4,14 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     feed: DataTypes.TEXT,
     picUrl: DataTypes.STRING,
-    approved: DataTypes.BOOLEAN,
-    rejected: DataTypes.BOOLEAN,
+    approved: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
+    rejected: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     UserId: DataTypes.INTEGER
   }, {});
   Feed.associate = function(models) {

@@ -1,7 +1,10 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Role = sequelize.define('Role', {
-    roleTitle: DataTypes.STRING
+    roleTitle: {
+      type: DataTypes.STRING,
+      defaultValue: "User"
+    }
   }, {});
   Role.associate = function(models) {
     // associations can be defined here

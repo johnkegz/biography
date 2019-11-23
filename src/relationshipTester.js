@@ -55,6 +55,14 @@ const Role = models.Role;
 //     console.log("Error while find company : ", err)
 //   })
 
+Role.bulkCreate([
+    {
+      roleTitle: 'Admin',
+    },
+    {
+      roleTitle: 'User',
+    },
+  ])
 
 // Role.bulkCreate([
 //   {
@@ -81,23 +89,23 @@ const Role = models.Role;
 // .catch((err) => console.log("Error while Roles creation : ", err))
 
 
-Role.findOne({where: {
-    roleTitle: 'User'
-}})
-  .then((role) => {
-      console.log("role", role)
-    User.findOne({where: {email: "jj@gmail.com"}, include: ['roles']})
-    .then((user) => {
-        console.log("user +++++++++++++++++++++++++++++", user);
-      // For user 1, 2 and 3 set the sames Roles
-    //   users.forEach(user => {
-        user.setRoles(role) // Roles is an array (one user hasMany Roles)
-    //     .then((joinedUsersRoles) => {
-    //       console.log(joinedUsersRoles)
-    //     })
-    //     .catch((err) => console.log("Error while joining Users and Roles : ", err))
-    //   });
-    })
-    .catch((err) => console.log("Error while Users search : ", err))
-  })
-  .catch((err) => console.log("Error while Roles creation : ", err))
+// Role.findOne({where: {
+//     roleTitle: 'User'
+// }})
+//   .then((role) => {
+//       console.log("role", role)
+//     User.findOne({where: {email: "jj@gmail.com"}, include: ['roles']})
+//     .then((user) => {
+//         console.log("user +++++++++++++++++++++++++++++", user);
+//       // For user 1, 2 and 3 set the sames Roles
+//     //   users.forEach(user => {
+//         user.setRoles(role) // Roles is an array (one user hasMany Roles)
+//     //     .then((joinedUsersRoles) => {
+//     //       console.log(joinedUsersRoles)
+//     //     })
+//     //     .catch((err) => console.log("Error while joining Users and Roles : ", err))
+//     //   });
+//     })
+//     .catch((err) => console.log("Error while Users search : ", err))
+//   })
+//   .catch((err) => console.log("Error while Roles creation : ", err))

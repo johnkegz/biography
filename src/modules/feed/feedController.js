@@ -2,15 +2,22 @@
 const models = require('../../database/models');
 class FeedController{
     static async postFeed(req, res){
+        console.log("feed here ++++++++++++");
         try{
+            // const userId = await models.User.findOne({where: {
+            //     email: 
+            // }})
+            console.log("+++", req.body);
             const data = {
                 title: req.body.title,
                 feed: req.body.feed,
                 picUrl: req.body.imageUrl
             }
-            await models.Feed.create(req.body)
+            const response = await models.Feed.create(req.body)
+            console.log("response here ++++++++++++", response);
             return res.json({"message":'Story created'})
         }catch(err){
+            console.log("err here ++++++++++++", err);
             return res.json(err)
         }
     }
@@ -20,6 +27,23 @@ class FeedController{
                 order: [
                 ['id', 'DESC'],], limit: 10,
                 where: {
+                    approved: true
+                }
+            })
+            return res.json(feedData);
+        }catch(err){
+            return res.json(err)
+        }
+    }
+
+    //get feed for dashboard
+    static async getFeedForDashboard(req, res){
+        console.log(" getFeedForDashboard ++++++++++")
+        try{
+            const feedData = await models.Feed.findAll({
+                order: [
+                ['id', 'DESC'],],
+                where: {
                     approved: false
                 }
             })
@@ -28,6 +52,8 @@ class FeedController{
             return res.json(err)
         }
     }
+
+    //get one feed
 
     static async getOneFeed(req, res){
         try{
@@ -67,7 +93,7 @@ static async approve(req, res){
     try{
         console.log("approved +++++++++")
         const feedId = req.params.id;
-        console.log("approved +++++++++ feedId", feedId)
+        
     const response = await models.Feed.update({
         approved: true
       }, {where:{

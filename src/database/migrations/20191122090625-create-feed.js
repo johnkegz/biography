@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       approved: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       rejected: {
         type: Sequelize.BOOLEAN

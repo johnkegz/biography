@@ -9,6 +9,7 @@ const FeedController = require('./feedController');
 const router = express.Router();
 
 router.get('/feed', FeedController.getFeed);
+router.get('/dashboard/feed', FeedController.getFeedForDashboard);
 router.get('/feed/:id', FeedController.getOneFeed);
 router.post('/feed', FeedController.postFeed);
 router.put('/feed/:id', FeedController.approve);
