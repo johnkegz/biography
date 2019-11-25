@@ -38,7 +38,6 @@ class FeedController{
 
     //get feed for dashboard
     static async getFeedForDashboard(req, res){
-        console.log(" getFeedForDashboard ++++++++++")
         try{
             const feedData = await models.Feed.findAll({
                 order: [
