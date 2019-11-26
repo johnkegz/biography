@@ -28,7 +28,7 @@ class FeedController{
                 ['id', 'DESC'],], limit: 10,
                 where: {
                     approved: true
-                }
+                },include: 'user'
             })
             return res.json(feedData);
         }catch(err){
