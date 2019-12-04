@@ -11,9 +11,10 @@ class FeedController{
             const data = {
                 title: req.body.title,
                 feed: req.body.feed,
-                picUrl: req.body.imageUrl
+                picUrl: req.body.picUrl !== "" ? req.body.picUrl : 'https://res.cloudinary.com/dar5ymd2m/image/upload/v1575461078/jcycgktgwnyzgzseagwe.png',
+                UserId: req.body.UserId
             }
-            const response = await models.Feed.create(req.body)
+            const response = await models.Feed.create(data)
             console.log("response here ++++++++++++", response);
             return res.json({"message":'Story created'})
         }catch(err){
