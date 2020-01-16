@@ -53,10 +53,10 @@ require('./config/passport')(passport)
 app.set('view engine', 'pug')
 //making a route with the <http method>(<path(route)>, <middle ware function(req, resp, next)>)
 app.get("/", (req, res) => {
-    let responseText = `request time<br/>`
-    responseText += `<small>time${req.requestTime}</small>`
+    let responseText = `Bio backend API`
+    responseText += `you are welcome`
     //render template using pug
-    res.render('example', { title: 'Hey the', message: `Hello there!  ${responseText}` })
+    res.render('example', { title: 'Bio backend API', message: `Hello there!  ${responseText}` })
     // res.send(responseText)
 });
 

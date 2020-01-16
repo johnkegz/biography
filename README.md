@@ -13,6 +13,19 @@ It creates api for great educators news feed
 * express
 * sequelize
 
+## Routes
+
+Register `/user/register`
+Login `/user/login`
+Get feeds for mobile app `/feed`
+Get feeds for dashboard `/dashboard/feed`
+Get one feed `/feed/:id`
+Post feed `/feed`
+Update feed `/feed/:id`
+Delete one feed `/feed/:id`
+DElete all feeds `/feed`
+
+
 ## Version
 
 * version 1
