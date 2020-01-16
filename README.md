@@ -1,18 +1,7 @@
-# biography
+# Biography Backend API
 
-# GREAT EDUCATORS API
 
 It creates api for great educators news feed
-
-### Features
-
-```
-* Sign up
-* Sign in
-* Create story
-* get feed
-```
-
 
 ## Deployment
 
