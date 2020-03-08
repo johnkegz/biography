@@ -7,6 +7,7 @@ const models = require('../../database/models');
 class PeopleController {
     //Method getting all the members from the database
     static async getPeople (req, res) {
+        console.log("herere ++++")
         try{
             const people = await  models.Person.findAll()
             return res.json(people)
